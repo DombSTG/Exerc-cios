@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #045c01;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        p {
+            font-size: 1.2em;
+            color: white;
+        }
+        input[type="number"] {
+            width: 100px;
+            margin-right: 10px;
+        }
+        input[type="button"] {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        div#res {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Analise de Notas</h1>
+    <p>Digite a primeira nota: <input type="number" id="nota1"> </p>
+    <p>Digite a segunda nota: <input type="number" id="nota2"> </p>
+    <br>
+    <input type="button" value="Calcular Média" onclick="calcularMedia()">
+    <div id="res"></div>
+    <script>
+        function calcularMedia() {
+            var nota1 = Number(document.querySelector('input#nota1').value);
+            var nota2 = Number(document.getElementById('nota2').value);
+            var media = (nota1 + nota2);
+            var res = document.querySelector('div#res')
+            res.innerHTML = `A média é <strong>${media}</strong>`;
+            if (media <= 60) {
+                res.innerHTML += '<p>Você foi reprovado!</p>'
+            } else {
+                res.innerHTML += '<p>Você foi aprovado!</p>'
+            }
+        }
+    </script>
+
+</body>
+</html>
